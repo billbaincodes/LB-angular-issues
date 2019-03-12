@@ -13,13 +13,19 @@ class App extends Component {
     this.issueFetcher()
   }
 
+  dateFinder = () => {
+    let currentDate = new Date()
+    let lastWeek = currentDate.getDate() - 7
+    currentDate.setDate(lastWeek)
+
+    console.log(currentDate)
+  }
+
   issueFetcher = () => {
     this.setState({ loaded : false })
-
     fetch("https://api.github.com/repos/angular/angular/issues?since=2019-03-11T03:09:08Z")
     .then(response => response.json())
     .then(json => this.setState({issueList: json, loaded : true}))
-
   }
 
 
@@ -30,6 +36,7 @@ class App extends Component {
         <h2>
           Check out these Angular Issues
         </h2>
+        <button onClick={this.dateFinder}>Get the date 7 days ago</button>
         <button onClick={this.issueFetcher}>Refresh results</button>
         <div>
         {this.state.loaded ? 
