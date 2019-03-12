@@ -11,10 +11,10 @@ class App extends Component {
   issueFetcher = () => {
     console.log('wired up')
 
-    fetch("https://api.github.com/repos/angular/angular/issues")
+    fetch("https://api.github.com/repos/angular/angular/issues?since=2019-03-11T21:34:49Z")
     .then(response => response.json())
-    .then(json => this.setState({loaded : true}))
-    
+    .then(json => this.setState({issueList: json, loaded : true}))
+
   }
 
 
