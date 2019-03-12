@@ -2,7 +2,7 @@ import React from 'react'
 
 const Issue = ({ issueData }) => {
   return(
-    <div>
+    <div className="issue-card">
       <h3>{issueData.title}</h3>
       <p>{issueData.body}</p>
       <h4>{`user login: ${issueData.user.login}`}</h4>
