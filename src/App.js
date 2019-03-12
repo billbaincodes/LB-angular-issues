@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Issue from './components/Issue.js'
 
 class App extends Component {
 
@@ -11,7 +12,7 @@ class App extends Component {
   issueFetcher = () => {
     console.log('wired up')
 
-    fetch("https://api.github.com/repos/angular/angular/issues?since=2019-03-11T21:34:49Z")
+    fetch("https://api.github.com/repos/angular/angular/issues?since=2019-03-11T03:09:08Z")
     .then(response => response.json())
     .then(json => this.setState({issueList: json, loaded : true}))
 
@@ -29,6 +30,9 @@ class App extends Component {
         {this.state.loaded ? 
         'fetch complete' :
         'waiting on them results'}
+
+        {this.state.issueList.map(issue => <Issue issueData={issue}/>)}
+
 
       </div>
     );

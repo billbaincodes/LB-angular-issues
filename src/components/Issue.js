@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Issue = () => {
+const Issue = ({ issueData }) => {
   return(
     <div>
-      <h3>Title</h3>
-      <p>Body</p>
-      <h4>user login</h4>
-      <h4>assignee login</h4>
+      <h3>{issueData.title}</h3>
+      <p>{issueData.body}</p>
+      <h4>{`user login: ${issueData.user.login}`}</h4>
+      <h4>{issueData.assignee ? `Assigned to: ${issueData.assignee.login}` : 'unassigned!' }</h4>
     </div>
   )
 }
