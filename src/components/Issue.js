@@ -3,20 +3,18 @@ import React from "react";
 const Issue = ({ issueData }) => {
   return (
     <div className="issue-card">
-      <h3>{issueData.title}</h3>
+      <h2>{issueData.title}</h2>
       <div className="issue-card-head">
-        <p>
-          <b>User Login: </b>
+        <span>
+          <b className="highlight">User Login: </b>
           {issueData.user.login}
-        </p>
+        </span>
         <p>
-          <b>Assigned to: </b>
-          {issueData.assignee ? issueData.assignee.login : "Unassigned!"}
+          <b className="highlight">Assignee Login: </b>
+          {issueData.assignee ? issueData.assignee.login : "No assignee!"}
         </p>
       </div>
-      <div className="issue-card-body">
-        <p>{issueData.body}</p>
-      </div>
+      <p>{issueData.body}</p>
     </div>
   );
 };
