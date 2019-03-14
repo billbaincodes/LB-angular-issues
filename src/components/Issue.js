@@ -1,14 +1,24 @@
-import React from 'react'
+import React from "react";
 
 const Issue = ({ issueData }) => {
-  return(
+  return (
     <div className="issue-card">
       <h3>{issueData.title}</h3>
-      <p>{issueData.body}</p>
-      <h4>{`user login: ${issueData.user.login}`}</h4>
-      <h4>{issueData.assignee ? `Assigned to: ${issueData.assignee.login}` : 'unassigned!' }</h4>
+      <div className="issue-card-head">
+        <p>
+          <b>User Login: </b>
+          {issueData.user.login}
+        </p>
+        <p>
+          <b>Assigned to: </b>
+          {issueData.assignee ? issueData.assignee.login : "Unassigned!"}
+        </p>
+      </div>
+      <div className="issue-card-body">
+        <p>{issueData.body}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Issue
+export default Issue;
