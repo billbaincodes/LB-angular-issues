@@ -49,13 +49,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="site">
+      <div>
         <div className="nav">
           <h2>Angular Issue Tracker</h2>
         </div>
-
         <div className="main">
-          <button onClick={this.dateFinder}>Refresh Results</button>
+          <div onClick={this.dateFinder}>Refresh Results</div>
           <div>
             {this.state.loaded
               ? this.state.issueList.map(issue => (
