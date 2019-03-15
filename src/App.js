@@ -20,7 +20,7 @@ class App extends Component {
     let lastWeek = currentDate.getDate() - 7;
     currentDate.setDate(lastWeek);
 
-    //Convert to ISO and Github API format
+    //Convert to ISO then Github API format
     let ISODate = currentDate.toISOString();
     ISODate = ISODate.substr(0, 19) + "Z";
 
@@ -31,7 +31,7 @@ class App extends Component {
   issueFetcher = date => {
     //GET issues and update in state
     this.setState({ loaded: false });
-    fetch(`https://api.github.com/repos/angssqqqular/angular/issues?since=${date}`)
+    fetch(`https://api.github.com/repos/angular/angular/issues?since=${date}`)
       .then(response => response.json())
       .then(json => {
         if (json.length) {
