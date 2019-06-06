@@ -5,7 +5,7 @@ import Issue from "./components/Issue.js";
 class App extends Component {
   state = {
     issueList: [],
-    fetchStatus: "Fetching...",
+    fetchStatus: "Fetching . . .",
     loaded: false
   };
 
